@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo-text {
+    font-size: 28px;
+}
+
+section {
+    padding: 0 50px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    margin-top: 25px;
+}
+
+.dishes__items, .halls__items {
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    column-gap: 50px;
+    row-gap: 50px;
+}
+
+.dish, .hall {
+    display: flex;
+    flex-direction: column;
+    background: #e9e9ff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.dish img, .hall img {
+    border-radius: 10px;
+    margin-bottom: 15px;
+    aspect-ratio: 16 / 12;
+}
+
+.dish__title, .hall__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.dish__desc {
+    flex: 1;
+    margin-bottom: 30px;
+}
+
+.dish__price {
+    font-size: 20px;
+    font-weight: 600;
+}

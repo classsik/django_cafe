@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <p class="header__logo-text">Кафе</p>
+        </div>
+        <div class="header__menu">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'order' %}">Заказать</a>
+                <a href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}">Вход</a>
+                <a href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
+        </div>
+    </header>
+    <section class="dishes">
+        <h2>Блюда</h2>
+        <div class="dishes__items">
+            {% for dish in dishes %}
+                <div class="dish">
+                    <img src="{{dish.image.url}}" alt="">
+                    <h3 class="dish__title">{{dish.name}}</h3>
+                    <p class="dish__desc">
+                        {{dish.description}}
+                    </p>
+                    <p class="dish__price">Цена: {{dish.price}} руб.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="halls">
+        <h2>Залы</h2>
+        <div class="halls__items">
+            {% for hall in halls %}
+                <div class="hall">
+                    <img src="{{hall.image.url}}" alt="">
+                    <h3 class="hall__title">{{hall.name}}</h3>
+                    <p class="hall__capacity">Вместимость: {{hall.capacity}} чел.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
